@@ -1142,7 +1142,7 @@ def parameter_space(__fail_fast=False, **params):
                 "supplied to parameter_space()." % extra
             )
 
-        param_sets = product(*(params[name] for name in argnames))
+        param_sets = list(product(*(params[name] for name in argnames)))
 
         if __fail_fast:
             @wraps(f)
